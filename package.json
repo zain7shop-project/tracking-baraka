@@ -1,0 +1,17 @@
+{
+  "name": "tracking-baraka",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node src/runner.js",
+    "test": "node src/test-one.js"
+  },
+  "dependencies": {
+    "playwright": "^1.55.0",
+    "xlsx": "^0.18.5",
+    "nodemailer": "^7.0.6",
+    "dotenv": "^17.2.2",
+    "cheerio": "^1.1.2"
+  }
+}

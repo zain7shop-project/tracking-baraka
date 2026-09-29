@@ -1,0 +1,28 @@
+name: Test Baraka Tracking
+
+on:
+  workflow_dispatch:
+    inputs:
+      resi:
+        description: 'Nomor resi untuk test'
+        required: true
+        default: 'G-005TAM/2609280009'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Test one resi
+        run: npm test -- "${{ inputs.resi }}"
